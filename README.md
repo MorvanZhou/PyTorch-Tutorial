@@ -38,7 +38,7 @@ In these tutorials for pyTorch, we will build our first Neural Network and try t
 
 **For Chinese speakers: All methods mentioned below have their video and text tutorial in Chinese.
 Visit [莫烦 Python](https://morvanzhou.github.io/tutorials/) for more.
-You can also watch my [Youtube channel](https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg) as well.**
+You can watch my [Youtube channel](https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg) as well.**
 
 
 ### [Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/301_regression.py)

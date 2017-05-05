@@ -12,9 +12,6 @@
 
 In these tutorials for pyTorch, we will build our first Neural Network and try to build some advanced Neural Network architectures developed recent years.
 
-All methods mentioned below have their video and text tutorial in Chinese. Visit [莫烦 Python](https://morvanzhou.github.io/tutorials/) for more.
-If you speak Chinese, you can watch my [Youtube channel](https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg) as well.
-
 
 * pyTorch basic
   * [torch and numpy](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/201_torch_numpy.py)
@@ -38,6 +35,11 @@ If you speak Chinese, you can watch my [Youtube channel](https://www.youtube.com
   * [Train on GPU](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/502_GPU.py)
   * [Dropout](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/503_dropout.py)
   * [Batch Normalization](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/504_batch_normalization.py)
+
+**For Chinese speakers: All methods mentioned below have their video and text tutorial in Chinese.
+Visit [莫烦 Python](https://morvanzhou.github.io/tutorials/) for more.
+You can also watch my [Youtube channel](https://www.youtube.com/channel/UCdyjiB5H8Pu7aDTNVXTTpcg) as well.**
+
 
 ### [Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/301_regression.py)
 

@@ -19,8 +19,8 @@ x0 = torch.normal(2*n_data, 1)      # class0 x data (tensor), shape=(100, 2)
 y0 = torch.zeros(100)               # class0 y data (tensor), shape=(100, 1)
 x1 = torch.normal(-2*n_data, 1)     # class1 x data (tensor), shape=(100, 2)
 y1 = torch.ones(100)                # class1 y data (tensor), shape=(100, 1)
-x = torch.cat((x0, x1), 0).type(torch.FloatTensor)  # FloatTensor = 32-bit floating
-y = torch.cat((y0, y1), ).type(torch.LongTensor)    # LongTensor = 64-bit integer
+x = torch.cat((x0, x1), 0).type(torch.FloatTensor)  # shape (200, 2) FloatTensor = 32-bit floating
+y = torch.cat((y0, y1), ).type(torch.LongTensor)    # shape (200,) LongTensor = 64-bit integer
 
 # torch can only train on Variable, so convert them to Variable
 x, y = Variable(x), Variable(y)
@@ -44,7 +44,7 @@ net = Net(n_feature=2, n_hidden=10, n_output=2)     # define the network
 print(net)  # net architecture
 
 optimizer = torch.optim.SGD(net.parameters(), lr=0.02)
-loss_func = torch.nn.CrossEntropyLoss()  # the target label is not one-hotted
+loss_func = torch.nn.CrossEntropyLoss()  # the target label is NOT an one-hotted
 
 plt.ion()   # something about plotting
 plt.show()

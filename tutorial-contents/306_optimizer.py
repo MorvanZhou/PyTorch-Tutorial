@@ -1,5 +1,5 @@
 """
-Know more, visit 莫烦Python: https://morvanzhou.github.io/tutorials/
+Know more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:

@@ -37,9 +37,9 @@ class RNN(nn.Module):
 
         self.rnn = nn.RNN(
             input_size=1,
-            hidden_size=32,  # rnn hidden unit
-            num_layers=1,  # number of rnn layer
-            batch_first=True,  # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
+            hidden_size=32,     # rnn hidden unit
+            num_layers=1,       # number of rnn layer
+            batch_first=True,   # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)
         )
         self.out = nn.Linear(32, 1)
 
@@ -61,10 +61,10 @@ print(rnn)
 optimizer = torch.optim.Adam(rnn.parameters(), lr=LR)   # optimize all cnn parameters
 loss_func = nn.MSELoss()
 
-h_state = None   # for initial hidden state
+h_state = None      # for initial hidden state
 
 plt.figure(1, figsize=(12, 5))
-plt.ion()   # continuously plot
+plt.ion()           # continuously plot
 plt.show()
 
 for step in range(60):
@@ -79,12 +79,12 @@ for step in range(60):
 
     prediction, h_state = rnn(x, h_state)   # rnn output
     # !! next step is important !!
-    h_state = Variable(h_state.data)  # repack the hidden state, break the connection from last iteration
+    h_state = Variable(h_state.data)        # repack the hidden state, break the connection from last iteration
 
-    loss = loss_func(prediction, y)     # cross entropy loss
-    optimizer.zero_grad()               # clear gradients for this training step
-    loss.backward()                     # backpropagation, compute gradients
-    optimizer.step()                    # apply gradients
+    loss = loss_func(prediction, y)         # cross entropy loss
+    optimizer.zero_grad()                   # clear gradients for this training step
+    loss.backward()                         # backpropagation, compute gradients
+    optimizer.step()                        # apply gradients
 
     # plotting
     plt.plot(steps, y_np.flatten(), 'r-')

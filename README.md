@@ -30,7 +30,7 @@ In these tutorials for pyTorch, we will build our first Neural Network and try t
   * [RNN-Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/403_RNN_regressor.py)
   * [AutoEncoder](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/404_autoencoder.py)
   * [DQN Reinforcement Learning](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/405_DQN_Reinforcement_learning.py)
-  * [GAN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py) / [Conditional GAN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_conditional_GAN.py)
+  * [GAN (Generative Adversarial Nets)](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py) / [Conditional GAN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_conditional_GAN.py)
 * Others (WIP)
   * [Why torch dynamic](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/501_why_torch_dynamic_graph.py)
   * [Train on GPU](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/502_GPU.py)
@@ -68,6 +68,11 @@ You can watch my [Youtube channel](https://www.youtube.com/channel/UCdyjiB5H8Pu7
 
 <a href="https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/403_RNN_regressor.py">
     <img class="course-image" src="https://morvanzhou.github.io/static/results/torch/4-4-2.gif" >
+</a>
+
+### [GAN (Generative Adversarial Nets)](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py)
+<a href="https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py">
+    <img class="course-image" src="https://morvanzhou.github.io/static/results/torch/4-6-1.gif" >
 </a>
 
 ### [Dropout](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/503_dropout.py)

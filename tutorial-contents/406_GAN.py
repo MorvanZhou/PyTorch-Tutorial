@@ -37,12 +37,6 @@ def artist_works():     # painting from the famous artist (real target)
     paintings = torch.from_numpy(paintings).float()
     return Variable(paintings)
 
-
-def G_ideas():          # the random ideas for generator to draw something
-    z = torch.randn(BATCH_SIZE, N_IDEAS)
-    return Variable(z)
-
-
 G = nn.Sequential(                      # Generator
     nn.Linear(N_IDEAS, 128),            # random ideas (could from normal distribution)
     nn.ReLU(),
@@ -63,15 +57,14 @@ plt.ion()   # something about continuous plotting
 plt.show()
 for step in range(10000):
     artist_paintings = artist_works()           # real painting from artist
-    G_paintings = G(G_ideas())                  # fake painting from G (random ideas)
+    G_ideas = Variable(torch.randn(BATCH_SIZE, N_IDEAS))    # random ideas
+    G_paintings = G(G_ideas)                    # fake painting from G (random ideas)
 
     prob_artist0 = D(artist_paintings)          # D try to increase this prob
     prob_artist1 = D(G_paintings)               # D try to reduce this prob
 
-    D_score0 = torch.log(prob_artist0)          # maximise this for D
-    D_score1 = torch.log(1. - prob_artist1)     # maximise this for D
-    D_loss = - torch.mean(D_score0 + D_score1)  # minimise the negative of both two above for D
-    G_loss = torch.mean(D_score1)               # minimise D score w.r.t G
+    D_loss = - torch.mean(torch.log(prob_artist0) + torch.log(1. - prob_artist1))
+    G_loss = torch.mean(torch.log(1. - prob_artist1))
 
     opt_D.zero_grad()
     D_loss.backward(retain_variables=True)      # retain_variables for reusing computational graph

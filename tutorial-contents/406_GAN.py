@@ -52,7 +52,7 @@ D = nn.Sequential(                      # Discriminator
     nn.Linear(ART_COMPONENTS, 128),     # receive art work either from the famous artist or a newbie like G
     nn.ReLU(),
     nn.Linear(128, 1),
-    nn.Sigmoid(),                       # tell the art work is made by artist or newbie G
+    nn.Sigmoid(),                       # tell the probability that the art work is made by artist
 )
 
 opt_D = torch.optim.Adam(D.parameters(), lr=LR_D)

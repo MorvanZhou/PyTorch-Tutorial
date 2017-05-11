@@ -40,11 +40,6 @@ def artist_works_with_labels():     # painting from the famous artist (real targ
     return Variable(paintings), Variable(labels)
 
 
-def G_ideas():                      # the random ideas for generator to draw something
-    z = torch.randn(BATCH_SIZE, N_IDEAS)
-    return Variable(z)
-
-
 G = nn.Sequential(                      # Generator
     nn.Linear(N_IDEAS+1, 128),          # random ideas (could from normal distribution) + class label
     nn.ReLU(),
@@ -65,7 +60,8 @@ plt.ion()   # something about continuous plotting
 plt.show()
 for step in range(10000):
     artist_paintings, labels = artist_works_with_labels()           # real painting, label from artist
-    G_inputs = torch.cat((G_ideas(), labels), 1)
+    G_ideas = Variable(torch.randn(BATCH_SIZE, N_IDEAS))            # random ideas
+    G_inputs = torch.cat((G_ideas, labels), 1)                      # ideas with labels
     G_paintings = G(G_inputs)                                       # fake painting w.r.t label from G
 
     D_inputs0 = torch.cat((artist_paintings, labels), 1)            # all have their labels

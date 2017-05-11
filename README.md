@@ -8,6 +8,9 @@
 
 <br>
 
+** If you'd like to use Tensorflow, no worries, I made a new Tensorflow Tutorial just like PyTorch. Here is the link:
+ [https://github.com/MorvanZhou/Tensorflow-Tutorial](https://github.com/MorvanZhou/Tensorflow-Tutorial)**
+
 # pyTorch Tutorials
 
 In these tutorials for pyTorch, we will build our first Neural Network and try to build some advanced Neural Network architectures developed recent years.

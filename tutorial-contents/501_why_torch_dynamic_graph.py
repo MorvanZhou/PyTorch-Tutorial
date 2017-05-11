@@ -16,11 +16,8 @@ import matplotlib.pyplot as plt
 torch.manual_seed(1)    # reproducible
 
 # Hyper Parameters
-BATCH_SIZE = 64
-TIME_STEP = 5           # rnn time step / image height
 INPUT_SIZE = 1          # rnn input size / image width
 LR = 0.02               # learning rate
-DOWNLOAD_MNIST = True   # set to False if have downloaded the data
 
 
 class RNN(nn.Module):

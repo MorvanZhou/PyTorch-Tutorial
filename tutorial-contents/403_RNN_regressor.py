@@ -35,7 +35,7 @@ class RNN(nn.Module):
         super(RNN, self).__init__()
 
         self.rnn = nn.RNN(
-            input_size=1,
+            input_size=INPUT_SIZE,
             hidden_size=32,     # rnn hidden unit
             num_layers=1,       # number of rnn layer
             batch_first=True,   # input & output will has batch size as 1s dimension. e.g. (batch, time_step, input_size)

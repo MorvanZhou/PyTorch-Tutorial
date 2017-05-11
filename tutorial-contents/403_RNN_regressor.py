@@ -16,7 +16,6 @@ import matplotlib.pyplot as plt
 torch.manual_seed(1)    # reproducible
 
 # Hyper Parameters
-BATCH_SIZE = 64
 TIME_STEP = 5       # rnn time step
 INPUT_SIZE = 1      # rnn input size
 LR = 0.02           # learning rate

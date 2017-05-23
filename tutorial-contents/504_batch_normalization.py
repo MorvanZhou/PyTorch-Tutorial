@@ -48,7 +48,6 @@ train_loader = Data.DataLoader(dataset=train_dataset, batch_size=BATCH_SIZE, shu
 # show data
 plt.scatter(train_x.numpy(), train_y.numpy(), c='#FF9359', s=50, alpha=0.2, label='train')
 plt.legend(loc='upper left')
-plt.show()
 
 class Net(nn.Module):
     def __init__(self, batch_normalization=False):

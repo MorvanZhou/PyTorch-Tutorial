@@ -47,7 +47,6 @@ optimizer = torch.optim.SGD(net.parameters(), lr=0.02)
 loss_func = torch.nn.CrossEntropyLoss()  # the target label is NOT an one-hotted
 
 plt.ion()   # something about plotting
-plt.show()
 
 for t in range(100):
     out = net(x)                 # input x and predict based on x

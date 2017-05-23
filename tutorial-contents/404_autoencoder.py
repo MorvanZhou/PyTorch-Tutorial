@@ -85,7 +85,6 @@ loss_func = nn.MSELoss()
 # initialize figure
 f, a = plt.subplots(2, N_TEST_IMG, figsize=(5, 2))
 plt.ion()   # continuously plot
-plt.show()
 
 # original data (first row) for viewing
 view_data = Variable(train_data.train_data[:N_TEST_IMG].view(-1, 28*28).type(torch.FloatTensor)/255.)

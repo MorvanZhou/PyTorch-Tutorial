@@ -41,7 +41,6 @@ optimizer = torch.optim.SGD(net.parameters(), lr=0.5)
 loss_func = torch.nn.MSELoss()  # this is for regression mean squared loss
 
 plt.ion()   # something about plotting
-plt.show()
 
 for t in range(100):
     prediction = net(x)     # input x and predict based on x

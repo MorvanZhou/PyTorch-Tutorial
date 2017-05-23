@@ -58,7 +58,6 @@ optimizer_drop = torch.optim.Adam(net_dropped.parameters(), lr=0.01)
 loss_func = torch.nn.MSELoss()
 
 plt.ion()   # something about plotting
-plt.show()
 
 for t in range(500):
     pred_ofit = net_overfitting(x)

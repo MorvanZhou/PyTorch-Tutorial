@@ -32,4 +32,18 @@ net2 = torch.nn.Sequential(
 
 
 print(net1)     # net1 architecture
+"""
+Net (
+  (hidden): Linear (1 -> 10)
+  (predict): Linear (10 -> 1)
+)
+"""
+
 print(net2)     # net2 architecture
+"""
+Sequential (
+  (0): Linear (1 -> 10)
+  (1): ReLU ()
+  (2): Linear (10 -> 1)
+)
+"""

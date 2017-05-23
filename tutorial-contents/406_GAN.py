@@ -54,7 +54,7 @@ opt_D = torch.optim.Adam(D.parameters(), lr=LR_D)
 opt_G = torch.optim.Adam(G.parameters(), lr=LR_G)
 
 plt.ion()   # something about continuous plotting
-plt.show()
+
 for step in range(10000):
     artist_paintings = artist_works()           # real painting from artist
     G_ideas = Variable(torch.randn(BATCH_SIZE, N_IDEAS))    # random ideas

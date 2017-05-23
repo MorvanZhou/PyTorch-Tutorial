@@ -54,7 +54,6 @@ h_state = None   # for initial hidden state
 
 plt.figure(1, figsize=(12, 5))
 plt.ion()   # continuously plot
-plt.show()
 
 ########################  Below is different #########################
 

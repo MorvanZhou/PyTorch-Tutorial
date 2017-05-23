@@ -64,7 +64,6 @@ h_state = None      # for initial hidden state
 
 plt.figure(1, figsize=(12, 5))
 plt.ion()           # continuously plot
-plt.show()
 
 for step in range(60):
     start, end = step * np.pi, (step+1)*np.pi   # time range

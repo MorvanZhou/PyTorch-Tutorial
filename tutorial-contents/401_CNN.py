@@ -98,7 +98,7 @@ for epoch in range(EPOCH):
         if step % 50 == 0:
             test_output = cnn(test_x)
             pred_y = torch.max(test_output, 1)[1].data.squeeze()
-            accuracy = sum(pred_y == test_y) / test_y.size(0)
+            accuracy = sum(pred_y == test_y) / float(test_y.size(0))
             print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0], '| test accuracy: %.2f' % accuracy)
 
 

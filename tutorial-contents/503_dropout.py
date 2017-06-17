@@ -87,9 +87,7 @@ for t in range(500):
         plt.plot(test_x.data.numpy(), test_pred_drop.data.numpy(), 'b--', lw=3, label='dropout(50%)')
         plt.text(0, -1.2, 'overfitting loss=%.4f' % loss_func(test_pred_ofit, test_y).data[0], fontdict={'size': 20, 'color':  'red'})
         plt.text(0, -1.5, 'dropout loss=%.4f' % loss_func(test_pred_drop, test_y).data[0], fontdict={'size': 20, 'color': 'blue'})
-        plt.legend(loc='upper left')
-        plt.ylim((-2.5, 2.5))
-        plt.pause(0.1)
+        plt.legend(loc='upper left'); plt.ylim((-2.5, 2.5));plt.pause(0.1)
 
         # change back to train mode
         net_overfitting.train()

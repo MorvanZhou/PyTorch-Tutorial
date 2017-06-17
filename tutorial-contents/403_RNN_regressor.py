@@ -87,8 +87,7 @@ for step in range(60):
     # plotting
     plt.plot(steps, y_np.flatten(), 'r-')
     plt.plot(steps, prediction.data.numpy().flatten(), 'b-')
-    plt.draw()
-    plt.pause(0.05)
+    plt.draw(); plt.pause(0.05)
 
 plt.ioff()
 plt.show()

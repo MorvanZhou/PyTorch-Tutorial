@@ -14,7 +14,7 @@
 
 In these tutorials for pyTorch, we will build our first Neural Network and try to build some advanced Neural Network architectures developed recent years.
 
-Thanks for [liufuyang's](https://github.com/liufuyang) great contribution who added [notebook files](https://github.com/MorvanZhou/PyTorch-Tutorial/tree/master/tutorial-contents-notebooks) for this tutorial.
+Thanks for [liufuyang's](https://github.com/liufuyang) great contribution who added [**notebook files**](https://github.com/MorvanZhou/PyTorch-Tutorial/tree/master/tutorial-contents-notebooks) for this tutorial.
 
 * pyTorch basic
   * [torch and numpy](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/201_torch_numpy.py)

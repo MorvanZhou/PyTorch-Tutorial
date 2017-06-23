@@ -14,30 +14,31 @@
 
 In these tutorials for pyTorch, we will build our first Neural Network and try to build some advanced Neural Network architectures developed recent years.
 
+Thanks for [liufuyang's](https://github.com/liufuyang) great contribution who added [notebook files](https://github.com/MorvanZhou/PyTorch-Tutorial/tree/master/tutorial-contents-notebooks) for this tutorial.
 
 * pyTorch basic
-  * [torch and numpy](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/201_torch_numpy.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/201_torch_numpy.ipynb))
-  * [Variable](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/202_variable.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/202_variable.ipynb))
-  * [Activation](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/203_activation.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/203_activation.ipynb))
+  * [torch and numpy](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/201_torch_numpy.py)
+  * [Variable](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/202_variable.py)
+  * [Activation](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/203_activation.py)
 * Build your first network
-  * [Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/301_regression.py)    ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/301_regression.ipynb))
-  * [Classification](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/302_classification.py)    ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/302_classification.ipynb))
-  * [An easy way](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/303_build_nn_quickly.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/303_build_nn_quickly.ipynb))
-  * [Save and reload](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/304_save_reload.py)  ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/304_save_reload.ipynb))
-  * [Train on batch](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/305_batch_train.py)   ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/305_batch_train.ipynb))
-  * [Optimizers](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/306_optimizer.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/306_optimizer.ipynb))
+  * [Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/301_regression.py)
+  * [Classification](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/302_classification.py)
+  * [An easy way](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/303_build_nn_quickly.py)
+  * [Save and reload](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/304_save_reload.py)
+  * [Train on batch](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/305_batch_train.py)
+  * [Optimizers](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/306_optimizer.py)
 * Advanced neural network
-  * [CNN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/401_CNN.py)  ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/401_CNN.ipynb))
-  * [RNN-Classification](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/402_RNN_classifier.py)    ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/402_RNN.ipynb))
-  * [RNN-Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/403_RNN_regressor.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/403_RNN_regressor.ipynb))
-  * [AutoEncoder](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/404_autoencoder.py)  ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/404_autoencoder.ipynb))
-  * [DQN Reinforcement Learning](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/405_DQN_Reinforcement_learning.py)    ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/405_DQN_Reinforcement_learning.ipynb))
-  * [GAN (Generative Adversarial Nets)](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/406_GAN.ipynb)) / [Conditional GAN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_conditional_GAN.py)
+  * [CNN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/401_CNN.py)
+  * [RNN-Classification](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/402_RNN_classifier.py)
+  * [RNN-Regression](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/403_RNN_regressor.py)
+  * [AutoEncoder](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/404_autoencoder.py)
+  * [DQN Reinforcement Learning](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/405_DQN_Reinforcement_learning.py)
+  * [GAN (Generative Adversarial Nets)](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_GAN.py) / [Conditional GAN](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/406_conditional_GAN.py)
 * Others (WIP)
-  * [Why torch dynamic](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/501_why_torch_dynamic_graph.py)    ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/501_why_torch_dynamic_graph.ipynb))
-  * [Train on GPU](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/502_GPU.py) ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/502_GPU.ipynb))
-  * [Dropout](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/503_dropout.py)  ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/503_dropout.ipynb))
-  * [Batch Normalization](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/504_batch_normalization.py)  ([Notebook](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents-notebooks/504_batch_normalization.ipynb))
+  * [Why torch dynamic](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/501_why_torch_dynamic_graph.py)
+  * [Train on GPU](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/502_GPU.py)
+  * [Dropout](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/503_dropout.py)
+  * [Batch Normalization](https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/tutorial-contents/504_batch_normalization.py)
 
 **For Chinese speakers: All methods mentioned below have their video and text tutorial in Chinese.
 Visit [莫烦 Python](https://morvanzhou.github.io/tutorials/) for more.

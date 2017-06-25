@@ -72,6 +72,7 @@ for epoch in range(EPOCH):
             pred_y = torch.max(test_output, 1)[1].cuda().data.squeeze()  # move the computation in GPU
 
             accuracy = sum(pred_y == test_y) / test_y.size(0)
+            #if function sum doesn't work, try torch.sum(pred_y == test_y) / test_y.size(0)
             print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0], '| test accuracy: %.2f' % accuracy)
 
 

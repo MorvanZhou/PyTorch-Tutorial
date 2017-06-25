@@ -57,6 +57,13 @@ class RNN(nn.Module):
 rnn = RNN()
 print(rnn)
 
+
+def repackage_h_state(h):
+    if type(h) is Variable:
+        return Variable(h.data)
+    else:
+        return tuple(repackage_h_state(i) for i in h)
+
 optimizer = torch.optim.Adam(rnn.parameters(), lr=LR)   # optimize all cnn parameters
 loss_func = nn.MSELoss()
 

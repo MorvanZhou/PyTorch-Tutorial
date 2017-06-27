@@ -34,7 +34,7 @@ class RNN(nn.Module):
     def __init__(self):
         super(RNN, self).__init__()
 
-        self.rnn = nn.RNN(
+        self.rnn = nn.RNN(      #you can change nn.RNN to nn.LSTM here.
             input_size=INPUT_SIZE,
             hidden_size=32,     # rnn hidden unit
             num_layers=1,       # number of rnn layer
@@ -57,6 +57,13 @@ class RNN(nn.Module):
 rnn = RNN()
 print(rnn)
 
+
+def repackage_h_state(h):
+    if type(h) is Variable:
+        return Variable(h.data)
+    else:
+        return tuple(repackage_h_state(i) for i in h)
+
 optimizer = torch.optim.Adam(rnn.parameters(), lr=LR)   # optimize all cnn parameters
 loss_func = nn.MSELoss()
 
@@ -77,8 +84,11 @@ for step in range(60):
 
     prediction, h_state = rnn(x, h_state)   # rnn output
     # !! next step is important !!
-    h_state = Variable(h_state.data)        # repack the hidden state, break the connection from last iteration
-
+    if 'LSTM' in str(RNN().rnn):
+        h_state=repackage_h_state(h_state)
+    elif 'RNN' in str(RNN().rnn):       
+        h_state = Variable(h_state.data)      # repack the hidden state, break the connection from last iteration
+    
     loss = loss_func(prediction, y)         # cross entropy loss
     optimizer.zero_grad()                   # clear gradients for this training step
     loss.backward()                         # backpropagation, compute gradients

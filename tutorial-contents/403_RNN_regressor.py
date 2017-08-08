@@ -53,6 +53,10 @@ class RNN(nn.Module):
             outs.append(self.out(r_out[:, time_step, :]))
         return torch.stack(outs, dim=1), h_state
 
+        # instead, for simplicity, you can replace above codes by follows
+        # r_out = r_out.view(-1, 32)
+        # outs = self.out(r_out)
+        # return outs, h_state
 
 rnn = RNN()
 print(rnn)

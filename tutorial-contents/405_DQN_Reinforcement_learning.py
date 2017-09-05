@@ -4,7 +4,7 @@ My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 More about Reinforcement learning: https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/
 
 Dependencies:
-torch: 0.1.11
+torch: 0.2
 gym: 0.8.1
 numpy
 """

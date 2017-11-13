@@ -38,6 +38,7 @@ class Net(torch.nn.Module):
     def forward(self, x):
         x = F.relu(self.hidden(x))      # activation function for hidden layer
         x = self.out(x)
+        x = F.softmax(x)
         return x
 
 net = Net(n_feature=2, n_hidden=10, n_output=2)     # define the network
@@ -60,7 +61,7 @@ for t in range(100):
     if t % 2 == 0:
         # plot and show learning process
         plt.cla()
-        prediction = torch.max(F.softmax(out), 1)[1]
+        prediction = torch.max(out, 1)[1]
         pred_y = prediction.data.numpy().squeeze()
         target_y = y.data.numpy()
         plt.scatter(x.data.numpy()[:, 0], x.data.numpy()[:, 1], c=pred_y, s=100, lw=0, cmap='RdYlGn')

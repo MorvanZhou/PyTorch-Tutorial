@@ -10,7 +10,7 @@ import torch
 from torch.autograd import Variable
 import matplotlib.pyplot as plt
 
-torch.manual_seed(1)    # reproducible
+# torch.manual_seed(1)    # reproducible
 
 N_SAMPLES = 20
 N_HIDDEN = 300

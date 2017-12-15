@@ -11,7 +11,7 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-torch.manual_seed(1)    # reproducible
+# torch.manual_seed(1)    # reproducible
 
 # make fake data
 n_data = torch.ones(100, 2)

@@ -19,7 +19,7 @@ import torch.utils.data as Data
 import torchvision
 import matplotlib.pyplot as plt
 
-torch.manual_seed(1)    # reproducible
+# torch.manual_seed(1)    # reproducible
 
 # Hyper Parameters
 EPOCH = 1               # train the training data n times, to save time, we just train 1 epoch

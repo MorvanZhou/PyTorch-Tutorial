@@ -16,8 +16,8 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import numpy as np
 
-torch.manual_seed(1)    # reproducible
-np.random.seed(1)
+# torch.manual_seed(1)    # reproducible
+# np.random.seed(1)
 
 # Hyper parameters
 N_SAMPLES = 2000

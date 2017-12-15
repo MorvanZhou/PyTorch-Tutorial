@@ -13,7 +13,7 @@ from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 
-torch.manual_seed(1)    # reproducible
+# torch.manual_seed(1)    # reproducible
 
 # Hyper Parameters
 INPUT_SIZE = 1          # rnn input size / image width

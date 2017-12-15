@@ -12,7 +12,7 @@ from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
 
-torch.manual_seed(1)
+# torch.manual_seed(1)
 
 EPOCH = 1
 BATCH_SIZE = 50

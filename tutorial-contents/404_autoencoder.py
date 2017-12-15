@@ -18,7 +18,7 @@ from matplotlib import cm
 import numpy as np
 
 
-torch.manual_seed(1)    # reproducible
+# torch.manual_seed(1)    # reproducible
 
 # Hyper Parameters
 EPOCH = 10

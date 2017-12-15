@@ -13,8 +13,8 @@ from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 
-torch.manual_seed(1)    # reproducible
-np.random.seed(1)
+# torch.manual_seed(1)    # reproducible
+# np.random.seed(1)
 
 # Hyper Parameters
 BATCH_SIZE = 64

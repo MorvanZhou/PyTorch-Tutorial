@@ -3,13 +3,12 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 matplotlib
 torchvision
 """
 import torch
 from torch import nn
-from torch.autograd import Variable
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
@@ -47,7 +46,7 @@ train_loader = torch.utils.data.DataLoader(dataset=train_data, batch_size=BATCH_
 
 # convert test data into Variable, pick 2000 samples to speed up testing
 test_data = dsets.MNIST(root='./mnist/', train=False, transform=transforms.ToTensor())
-test_x = Variable(test_data.test_data, volatile=True).type(torch.FloatTensor)[:2000]/255.   # shape (2000, 28, 28) value in range(0,1)
+test_x = test_data.test_data.type(torch.FloatTensor)[:2000]/255.   # shape (2000, 28, 28) value in range(0,1)
 test_y = test_data.test_labels.numpy().squeeze()[:2000]    # covert to numpy array
 
 
@@ -84,9 +83,8 @@ loss_func = nn.CrossEntropyLoss()                       # the target label is no
 
 # training and testing
 for epoch in range(EPOCH):
-    for step, (x, y) in enumerate(train_loader):        # gives batch data
-        b_x = Variable(x.view(-1, 28, 28))              # reshape x to (batch, time_step, input_size)
-        b_y = Variable(y)                               # batch y
+    for step, (b_x, b_y) in enumerate(train_loader):        # gives batch data
+        b_x = b_x.view(-1, 28, 28)              # reshape x to (batch, time_step, input_size)
 
         output = rnn(b_x)                               # rnn output
         loss = loss_func(output, b_y)                   # cross entropy loss
@@ -97,8 +95,8 @@ for epoch in range(EPOCH):
         if step % 50 == 0:
             test_output = rnn(test_x)                   # (samples, time_step, input_size)
             pred_y = torch.max(test_output, 1)[1].data.numpy().squeeze()
-            accuracy = sum(pred_y == test_y) / float(test_y.size)
-            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0], '| test accuracy: %.2f' % accuracy)
+            accuracy = float(sum(pred_y == test_y)) / float(test_y.size)
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
 
 # print 10 predictions from test data
 test_output = rnn(test_x[:10].view(-1, 28, 28))

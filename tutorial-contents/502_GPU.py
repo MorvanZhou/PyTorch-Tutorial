@@ -3,12 +3,11 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 torchvision
 """
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
 
@@ -25,7 +24,7 @@ train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffl
 test_data = torchvision.datasets.MNIST(root='./mnist/', train=False)
 
 # !!!!!!!! Change in here !!!!!!!!! #
-test_x = Variable(torch.unsqueeze(test_data.test_data, dim=1)).type(torch.FloatTensor)[:2000].cuda()/255.   # Tensor on GPU
+test_x = torch.unsqueeze(test_data.test_data, dim=1).type(torch.FloatTensor)[:2000].cuda()/255.   # Tensor on GPU
 test_y = test_data.test_labels[:2000].cuda()
 
 
@@ -56,8 +55,8 @@ for epoch in range(EPOCH):
     for step, (x, y) in enumerate(train_loader):
 
         # !!!!!!!! Change in here !!!!!!!!! #
-        b_x = Variable(x).cuda()    # Tensor on GPU
-        b_y = Variable(y).cuda()    # Tensor on GPU
+        b_x = x.cuda()    # Tensor on GPU
+        b_y = y.cuda()    # Tensor on GPU
 
         output = cnn(b_x)
         loss = loss_func(output, b_y)
@@ -72,7 +71,7 @@ for epoch in range(EPOCH):
             pred_y = torch.max(test_output, 1)[1].cuda().data.squeeze()  # move the computation in GPU
 
             accuracy = torch.sum(pred_y == test_y) / test_y.size(0)
-            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0], '| test accuracy: %.2f' % accuracy)
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
 
 
 test_output = cnn(test_x[:10])

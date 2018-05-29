@@ -3,11 +3,10 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 matplotlib
 """
 import torch
-from torch.autograd import Variable
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
@@ -17,8 +16,9 @@ x = torch.unsqueeze(torch.linspace(-1, 1, 100), dim=1)  # x data (tensor), shape
 y = x.pow(2) + 0.2*torch.rand(x.size())                 # noisy y data (tensor), shape=(100, 1)
 
 # torch can only train on Variable, so convert them to Variable
-#x, y = Variable(x), Variable(y)
-#The above code is depricated. Now,autograd directly supports tensors
+# The code below is deprecated in Pytorch 0.4. Now, autograd directly supports tensors
+# x, y = Variable(x), Variable(y)
+
 # plt.scatter(x.data.numpy(), y.data.numpy())
 # plt.show()
 
@@ -56,7 +56,7 @@ for t in range(200):
         plt.cla()
         plt.scatter(x.data.numpy(), y.data.numpy())
         plt.plot(x.data.numpy(), prediction.data.numpy(), 'r-', lw=5)
-        plt.text(0.5, 0, 'Loss=%.4f' % loss.data[0], fontdict={'size': 20, 'color':  'red'})
+        plt.text(0.5, 0, 'Loss=%.4f' % loss.data.numpy(), fontdict={'size': 20, 'color':  'red'})
         plt.pause(0.1)
 
 plt.ioff()

@@ -3,13 +3,12 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 matplotlib
 numpy
 """
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
 import matplotlib.pyplot as plt
@@ -87,15 +86,14 @@ f, a = plt.subplots(2, N_TEST_IMG, figsize=(5, 2))
 plt.ion()   # continuously plot
 
 # original data (first row) for viewing
-view_data = Variable(train_data.train_data[:N_TEST_IMG].view(-1, 28*28).type(torch.FloatTensor)/255.)
+view_data = train_data.train_data[:N_TEST_IMG].view(-1, 28*28).type(torch.FloatTensor)/255.
 for i in range(N_TEST_IMG):
     a[0][i].imshow(np.reshape(view_data.data.numpy()[i], (28, 28)), cmap='gray'); a[0][i].set_xticks(()); a[0][i].set_yticks(())
 
 for epoch in range(EPOCH):
-    for step, (x, y) in enumerate(train_loader):
-        b_x = Variable(x.view(-1, 28*28))   # batch x, shape (batch, 28*28)
-        b_y = Variable(x.view(-1, 28*28))   # batch y, shape (batch, 28*28)
-        b_label = Variable(y)               # batch label
+    for step, (x, b_label) in enumerate(train_loader):
+        b_x = x.view(-1, 28*28)   # batch x, shape (batch, 28*28)
+        b_y = x.view(-1, 28*28)   # batch y, shape (batch, 28*28)
 
         encoded, decoded = autoencoder(b_x)
 
@@ -105,7 +103,7 @@ for epoch in range(EPOCH):
         optimizer.step()                    # apply gradients
 
         if step % 100 == 0:
-            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0])
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy())
 
             # plotting decoded image (second row)
             _, decoded_data = autoencoder(view_data)
@@ -119,7 +117,7 @@ plt.ioff()
 plt.show()
 
 # visualize in 3D plot
-view_data = Variable(train_data.train_data[:200].view(-1, 28*28).type(torch.FloatTensor)/255.)
+view_data = train_data.train_data[:200].view(-1, 28*28).type(torch.FloatTensor)/255.
 encoded_data, _ = autoencoder(view_data)
 fig = plt.figure(2); ax = Axes3D(fig)
 X, Y, Z = encoded_data.data[:, 0].numpy(), encoded_data.data[:, 1].numpy(), encoded_data.data[:, 2].numpy()

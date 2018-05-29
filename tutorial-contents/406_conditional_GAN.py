@@ -3,13 +3,12 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 numpy
 matplotlib
 """
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -37,7 +36,7 @@ def artist_works_with_labels():     # painting from the famous artist (real targ
     labels = (a-1) > 0.5            # upper paintings (1), lower paintings (0), two classes
     paintings = torch.from_numpy(paintings).float()
     labels = torch.from_numpy(labels.astype(np.float32))
-    return Variable(paintings), Variable(labels)
+    return paintings, labels
 
 
 G = nn.Sequential(                      # Generator
@@ -60,7 +59,7 @@ plt.ion()   # something about continuous plotting
 
 for step in range(10000):
     artist_paintings, labels = artist_works_with_labels()           # real painting, label from artist
-    G_ideas = Variable(torch.randn(BATCH_SIZE, N_IDEAS))            # random ideas
+    G_ideas = torch.randn(BATCH_SIZE, N_IDEAS)                      # random ideas
     G_inputs = torch.cat((G_ideas, labels), 1)                      # ideas with labels
     G_paintings = G(G_inputs)                                       # fake painting w.r.t label from G
 
@@ -75,7 +74,7 @@ for step in range(10000):
     G_loss = torch.mean(D_score1)               # minimise D score w.r.t G
 
     opt_D.zero_grad()
-    D_loss.backward(retain_variables=True)      # retain_variables for reusing computational graph
+    D_loss.backward(retain_graph=True)      # reusing computational graph
     opt_D.step()
 
     opt_G.zero_grad()
@@ -88,20 +87,20 @@ for step in range(10000):
         bound = [0, 0.5] if labels.data[0, 0] == 0 else [0.5, 1]
         plt.plot(PAINT_POINTS[0], 2 * np.power(PAINT_POINTS[0], 2) + bound[1], c='#74BCFF', lw=3, label='upper bound')
         plt.plot(PAINT_POINTS[0], 1 * np.power(PAINT_POINTS[0], 2) + bound[0], c='#FF9359', lw=3, label='lower bound')
-        plt.text(-.5, 2.3, 'D accuracy=%.2f (0.5 for D to converge)' % prob_artist0.data.numpy().mean(), fontdict={'size': 15})
-        plt.text(-.5, 2, 'D score= %.2f (-1.38 for G to converge)' % -D_loss.data.numpy(), fontdict={'size': 15})
-        plt.text(-.5, 1.7, 'Class = %i' % int(labels.data[0, 0]), fontdict={'size': 15})
-        plt.ylim((0, 3));plt.legend(loc='upper right', fontsize=12);plt.draw();plt.pause(0.1)
+        plt.text(-.5, 2.3, 'D accuracy=%.2f (0.5 for D to converge)' % prob_artist0.data.numpy().mean(), fontdict={'size': 13})
+        plt.text(-.5, 2, 'D score= %.2f (-1.38 for G to converge)' % -D_loss.data.numpy(), fontdict={'size': 13})
+        plt.text(-.5, 1.7, 'Class = %i' % int(labels.data[0, 0]), fontdict={'size': 13})
+        plt.ylim((0, 3));plt.legend(loc='upper right', fontsize=10);plt.draw();plt.pause(0.1)
 
 plt.ioff()
 plt.show()
 
 # plot a generated painting for upper class
-z = Variable(torch.randn(1, N_IDEAS))
-label = Variable(torch.FloatTensor([[1.]]))     # for upper class
+z = torch.randn(1, N_IDEAS)
+label = torch.FloatTensor([[1.]])     # for upper class
 G_inputs = torch.cat((z, label), 1)
 G_paintings = G(G_inputs)
 plt.plot(PAINT_POINTS[0], G_paintings.data.numpy()[0], c='#4AD631', lw=3, label='G painting for upper class',)
 plt.plot(PAINT_POINTS[0], 2 * np.power(PAINT_POINTS[0], 2) + bound[1], c='#74BCFF', lw=3, label='upper bound (class 1)')
 plt.plot(PAINT_POINTS[0], 1 * np.power(PAINT_POINTS[0], 2) + bound[0], c='#FF9359', lw=3, label='lower bound (class 1)')
-plt.ylim((0, 3));plt.legend(loc='upper right', fontsize=12);plt.show()
+plt.ylim((0, 3));plt.legend(loc='upper right', fontsize=10);plt.show()

@@ -3,7 +3,7 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 torchvision
 matplotlib
 """
@@ -14,7 +14,6 @@ import os
 # third-party library
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
 import matplotlib.pyplot as plt
@@ -51,9 +50,9 @@ plt.show()
 # Data Loader for easy mini-batch return in training, the image batch shape will be (50, 1, 28, 28)
 train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)
 
-# convert test data into Variable, pick 2000 samples to speed up testing
+# pick 2000 samples to speed up testing
 test_data = torchvision.datasets.MNIST(root='./mnist/', train=False)
-test_x = Variable(torch.unsqueeze(test_data.test_data, dim=1), volatile=True).type(torch.FloatTensor)[:2000]/255.   # shape from (2000, 28, 28) to (2000, 1, 28, 28), value in range(0,1)
+test_x = torch.unsqueeze(test_data.test_data, dim=1).type(torch.FloatTensor)[:2000]/255.   # shape from (2000, 28, 28) to (2000, 1, 28, 28), value in range(0,1)
 test_y = test_data.test_labels[:2000]
 
 
@@ -106,9 +105,7 @@ def plot_with_labels(lowDWeights, labels):
 plt.ion()
 # training and testing
 for epoch in range(EPOCH):
-    for step, (x, y) in enumerate(train_loader):   # gives batch data, normalize x when iterate train_loader
-        b_x = Variable(x)   # batch x
-        b_y = Variable(y)   # batch y
+    for step, (b_x, b_y) in enumerate(train_loader):   # gives batch data, normalize x when iterate train_loader
 
         output = cnn(b_x)[0]               # cnn output
         loss = loss_func(output, b_y)   # cross entropy loss
@@ -119,8 +116,8 @@ for epoch in range(EPOCH):
         if step % 50 == 0:
             test_output, last_layer = cnn(test_x)
             pred_y = torch.max(test_output, 1)[1].data.squeeze()
-            accuracy = sum(pred_y == test_y) / float(test_y.size(0))
-            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0], '| test accuracy: %.2f' % accuracy)
+            accuracy = float(sum(pred_y == test_y)) / float(test_y.size(0))
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
             if HAS_SK:
                 # Visualization of trained flatten layer (T-SNE)
                 tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)

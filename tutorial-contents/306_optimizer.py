@@ -3,13 +3,12 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 matplotlib
 """
 import torch
 import torch.utils.data as Data
 import torch.nn.functional as F
-from torch.autograd import Variable
 import matplotlib.pyplot as plt
 
 # torch.manual_seed(1)    # reproducible
@@ -27,7 +26,7 @@ plt.scatter(x.numpy(), y.numpy())
 plt.show()
 
 # put dateset into torch dataset
-torch_dataset = Data.TensorDataset(data_tensor=x, target_tensor=y)
+torch_dataset = Data.TensorDataset(x, y)
 loader = Data.DataLoader(dataset=torch_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=2,)
 
 
@@ -64,17 +63,14 @@ if __name__ == '__main__':
     # training
     for epoch in range(EPOCH):
         print('Epoch: ', epoch)
-        for step, (batch_x, batch_y) in enumerate(loader):          # for each training step
-            b_x = Variable(batch_x)
-            b_y = Variable(batch_y)
-
+        for step, (b_x, b_y) in enumerate(loader):          # for each training step
             for net, opt, l_his in zip(nets, optimizers, losses_his):
                 output = net(b_x)              # get output for every net
                 loss = loss_func(output, b_y)  # compute loss for every net
                 opt.zero_grad()                # clear gradients for next train
                 loss.backward()                # backpropagation, compute gradients
                 opt.step()                     # apply gradients
-                l_his.append(loss.data[0])     # loss recoder
+                l_his.append(loss.data.numpy())     # loss recoder
 
     labels = ['SGD', 'Momentum', 'RMSprop', 'Adam']
     for i, l_his in enumerate(losses_his):

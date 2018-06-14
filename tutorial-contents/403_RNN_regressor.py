@@ -82,7 +82,7 @@ for step in range(100):
     # !! next step is important !!
     h_state = h_state.data        # repack the hidden state, break the connection from last iteration
 
-    loss = loss_func(prediction, y)         # cross entropy loss
+    loss = loss_func(prediction, y)         # calculate loss
     optimizer.zero_grad()                   # clear gradients for this training step
     loss.backward()                         # backpropagation, compute gradients
     optimizer.step()                        # apply gradients

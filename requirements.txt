@@ -1,0 +1,4 @@
+jupyter==1.0.0
+torch==0.4.1
+numpy==1.15.0
+matplotlib==2.2.2

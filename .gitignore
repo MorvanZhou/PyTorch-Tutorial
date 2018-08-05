@@ -102,5 +102,5 @@ ENV/
 
 .DS_Store
 
-.npy
-.pkl
+*.npy
+*.pkl

@@ -1,11 +1,11 @@
-<p align="center">
-    <a href="http://pytorch.org/" target="_blank">
-    <img width="40%" src="https://github.com/MorvanZhou/PyTorch-Tutorial/blob/master/logo.png" style="max-width:100%;">
-    </a>
-</p>
+# Run
 
-
-<br>
+```
+virtualenv -p python3 venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+jupyter notebook
+```
 
 ### If you'd like to use **Tensorflow**, no worries, I made a new **Tensorflow Tutorial** just like PyTorch. Here is the link: [https://github.com/MorvanZhou/Tensorflow-Tutorial](https://github.com/MorvanZhou/Tensorflow-Tutorial)
 

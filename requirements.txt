@@ -1,0 +1,7 @@
+jupyter==1.0.0
+torch==0.4.1
+numpy==1.15.0
+matplotlib==2.2.2
+torchvision==0.2.1
+scikit-learn==0.19.2
+gym==0.10.5

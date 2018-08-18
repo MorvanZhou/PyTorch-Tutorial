@@ -80,7 +80,7 @@ for step in range(100):
 
     prediction, h_state = rnn(x, h_state)   # rnn output
     # !! next step is important !!
-    h_state = h_state.data        # repack the hidden state, break the connection from last iteration
+    # h_state = h_state.data        # 既然这个版本取消了Variable，也不再需要.data了，自己实际运行了一下发现这句会报错
 
     loss = loss_func(prediction, y)         # calculate loss
     optimizer.zero_grad()                   # clear gradients for this training step

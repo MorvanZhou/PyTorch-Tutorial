@@ -3,7 +3,7 @@ View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
 
 Dependencies:
-torch: 0.1.11
+torch: 0.4
 matplotlib
 """
 import torch
@@ -17,12 +17,11 @@ x = Variable(x)
 x_np = x.data.numpy()   # numpy array for plotting
 
 # following are popular activation functions
-y_relu = F.relu(x).data.numpy()
-y_sigmoid = F.sigmoid(x).data.numpy()
-y_tanh = F.tanh(x).data.numpy()
-y_softplus = F.softplus(x).data.numpy()
-# y_softmax = F.softmax(x)  softmax is a special kind of activation function, it is about probability
-
+y_relu = torch.relu(x).data.numpy()
+y_sigmoid = torch.sigmoid(x).data.numpy()
+y_tanh = torch.tanh(x).data.numpy()
+y_softplus = F.softplus(x).data.numpy() # there's no softplus in torch
+# y_softmax = torch.softmax(x, dim=0).data.numpy() softmax is a special kind of activation function, it is about probability
 
 # plt to visualize these activation function
 plt.figure(1, figsize=(8, 6))

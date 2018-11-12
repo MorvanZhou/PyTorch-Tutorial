@@ -57,6 +57,11 @@ class RNN(nn.Module):
         # outs = self.out(r_out)
         # outs = outs.view(-1, TIME_STEP, 1)
         # return outs, h_state
+        
+        # or even simpler, since nn.Linear can accept inputs of any dimension 
+        # and returns outputs with same dimension except for the last
+        # outs = self.out(r_out)
+        # return outs
 
 rnn = RNN()
 print(rnn)

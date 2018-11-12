@@ -55,6 +55,7 @@ class RNN(nn.Module):
         # instead, for simplicity, you can replace above codes by follows
         # r_out = r_out.view(-1, 32)
         # outs = self.out(r_out)
+        # outs = outs.view(-1, TIME_STEP, 1)
         # return outs, h_state
 
 rnn = RNN()

@@ -20,8 +20,8 @@ INPUT_SIZE = 1      # rnn input size
 LR = 0.02           # learning rate
 
 # show data
-steps = np.linspace(0, np.pi*2, 100, dtype=np.float32)
-x_np = np.sin(steps)    # float32 for converting torch FloatTensor
+steps = np.linspace(0, np.pi*2, 100, dtype=np.float32)  # float32 for converting torch FloatTensor
+x_np = np.sin(steps)
 y_np = np.cos(steps)
 plt.plot(steps, y_np, 'r-', label='target (cos)')
 plt.plot(steps, x_np, 'b-', label='input (sin)')
@@ -77,8 +77,8 @@ plt.ion()           # continuously plot
 for step in range(100):
     start, end = step * np.pi, (step+1)*np.pi   # time range
     # use sin predicts cos
-    steps = np.linspace(start, end, TIME_STEP, dtype=np.float32)
-    x_np = np.sin(steps)    # float32 for converting torch FloatTensor
+    steps = np.linspace(start, end, TIME_STEP, dtype=np.float32)  # float32 for converting torch FloatTensor
+    x_np = np.sin(steps)
     y_np = np.cos(steps)
 
     x = torch.from_numpy(x_np[np.newaxis, :, np.newaxis])    # shape (batch, time_step, input_size)

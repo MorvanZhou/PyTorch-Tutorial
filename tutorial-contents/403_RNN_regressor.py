@@ -77,7 +77,7 @@ plt.ion()           # continuously plot
 for step in range(100):
     start, end = step * np.pi, (step+1)*np.pi   # time range
     # use sin predicts cos
-    steps = np.linspace(start, end, TIME_STEP, dtype=np.float32)  # float32 for converting torch FloatTensor
+    steps = np.linspace(start, end, TIME_STEP, dtype=np.float32, endpoint=False)  # float32 for converting torch FloatTensor
     x_np = np.sin(steps)
     y_np = np.cos(steps)
 

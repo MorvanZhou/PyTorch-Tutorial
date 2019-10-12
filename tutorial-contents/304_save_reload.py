@@ -16,7 +16,7 @@ x = torch.unsqueeze(torch.linspace(-1, 1, 100), dim=1)  # x data (tensor), shape
 y = x.pow(2) + 0.2*torch.rand(x.size())  # noisy y data (tensor), shape=(100, 1)
 
 # The code below is deprecated in Pytorch 0.4. Now, autograd directly supports tensors
-# x, y = Variable(x, requires_grad=False), Variable(y, requires_grad=False)
+x, y = Variable(x, requires_grad=False), Variable(y, requires_grad=False)
 
 
 def save():
@@ -77,7 +77,7 @@ def restore_params():
     plt.title('Net3')
     plt.scatter(x.data.numpy(), y.data.numpy())
     plt.plot(x.data.numpy(), prediction.data.numpy(), 'r-', lw=5)
-    plt.show()
+#     plt.show()
 
 # save net1
 save()
@@ -87,3 +87,6 @@ restore_net()
 
 # restore only the net parameters
 restore_params()
+
+plt.ioff()
+plt.show()

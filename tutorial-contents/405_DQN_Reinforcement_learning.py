@@ -1,7 +1,7 @@
 """
-View more, visit my tutorial page: https://morvanzhou.github.io/tutorials/
+View more, visit my tutorial page: https://mofanpy.com/tutorials/
 My Youtube Channel: https://www.youtube.com/user/MorvanZhou
-More about Reinforcement learning: https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/
+More about Reinforcement learning: https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/
 
 Dependencies:
 torch: 0.4

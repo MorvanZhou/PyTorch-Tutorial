@@ -9,6 +9,7 @@ numpy
 """
 import torch
 from torch import nn
+from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -81,12 +82,12 @@ for step in range(100):
     x_np = np.sin(steps)
     y_np = np.cos(steps)
 
-    x = torch.from_numpy(x_np[np.newaxis, :, np.newaxis])    # shape (batch, time_step, input_size)
-    y = torch.from_numpy(y_np[np.newaxis, :, np.newaxis])
+    x = Variable(torch.from_numpy(x_np[np.newaxis, :, np.newaxis]))    # shape (batch, time_step, input_size)
+    y = Variable(torch.from_numpy(y_np[np.newaxis, :, np.newaxis]))
 
     prediction, h_state = rnn(x, h_state)   # rnn output
     # !! next step is important !!
-    h_state = h_state.data        # repack the hidden state, break the connection from last iteration
+    h_state = Variable(h_state.data)        # repack the hidden state, break the connection from last iteration
 
     loss = loss_func(prediction, y)         # calculate loss
     optimizer.zero_grad()                   # clear gradients for this training step

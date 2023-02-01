@@ -6,6 +6,7 @@ Dependencies:
 torch: 0.4
 matplotlib
 numpy
+yes
 """
 import torch
 import torch.nn as nn
